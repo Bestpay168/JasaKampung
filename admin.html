@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#111827"
+    >
+
+    <title>Admin JASA KAMPUNG</title>
+
+    <!-- FONT -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- FONT AWESOME -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- ADMIN CSS -->
+    <link
+        rel="stylesheet"
+        href="admin.css"
+    >
+</head>
+
+<body>
+
+<div class="admin-app">
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="admin-header">
+
+        <div class="admin-brand">
+
+            <div class="admin-logo">
+                JK
+            </div>
+
+            <div>
+                <strong>
+                    JASA KAMPUNG
+                </strong>
+
+                <span>
+                    Admin Dashboard
+                </span>
+            </div>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="icon-button"
+            id="refreshButton"
+            title="Refresh"
+        >
+
+            <i class="fa-solid fa-rotate"></i>
+
+        </button>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="admin-main">
+
+
+        <!-- =================================================
+             WELCOME
+        ================================================== -->
+
+        <section class="admin-welcome">
+
+            <div>
+
+                <span class="eyebrow">
+                    ADMIN PANEL
+                </span>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+                <p>
+                    Pantau pesanan dan aktivitas
+                    JASA KAMPUNG.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+        <section class="stats-grid">
+
+
+            <!-- PESANAN -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon orders">
+                    <i class="fa-solid fa-receipt"></i>
+                </div>
+
+                <div>
+
+                    <span>
+                        Total Pesanan
+                    </span>
+
+                    <strong id="totalOrders">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- MENUNGGU -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon pending">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+
+                <div>
+
+                    <span>
+                        Menunggu
+                    </span>
+
+                    <strong id="pendingOrders">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROSES -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon process">
+                    <i class="fa-solid fa-spinner"></i>
+                </div>
+
+                <div>
+
+                    <span>
+                        Diproses
+                    </span>
+
+                    <strong id="processingOrders">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- SELESAI -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon completed">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+
+                <div>
+
+                    <span>
+                        Selesai
+                    </span>
+
+                    <strong id="completedOrders">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             REVENUE
+        ================================================== -->
+
+        <section class="revenue-card">
+
+            <div class="revenue-icon">
+
+                <i class="fa-solid fa-wallet"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+                    Total Omzet
+                </span>
+
+                <strong id="totalRevenue">
+                    Rp0
+                </strong>
+
+                <small>
+                    Dari seluruh pesanan
+                </small>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FILTER PESANAN
+        ================================================== -->
+
+        <section class="orders-section">
+
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        TRANSAKSI
+                    </span>
+
+                    <h2>
+                        Pesanan Terbaru
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="filter-button"
+                    id="filterButton"
+                >
+
+                    <i class="fa-solid fa-filter"></i>
+
+                    <span>
+                        Filter
+                    </span>
+
+                </button>
+
+            </div>
+
+
+
+            <!-- FILTER -->
+
+            <div
+                class="filter-panel"
+                id="filterPanel"
+                hidden
+            >
+
+                <button
+                    type="button"
+                    class="filter-option active"
+                    data-status="all"
+                >
+                    Semua
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-option"
+                    data-status="Menunggu"
+                >
+                    Menunggu
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-option"
+                    data-status="Diproses"
+                >
+                    Diproses
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-option"
+                    data-status="Selesai"
+                >
+                    Selesai
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-option"
+                    data-status="Dibatalkan"
+                >
+                    Dibatalkan
+                </button>
+
+            </div>
+
+
+
+            <!-- SEARCH -->
+
+            <div class="admin-search">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="search"
+                    id="orderSearch"
+                    placeholder="Cari nomor pesanan atau pelanggan..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+
+            <!-- ORDER LIST -->
+
+            <div
+                class="order-list"
+                id="orderList"
+            >
+
+                <!-- DATA DARI SUPABASE -->
+
+                <div class="loading-state">
+
+                    <div class="loading-spinner">
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                    </div>
+
+                    <p>
+                        Memuat pesanan...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             SERVICES
+        ================================================== -->
+
+        <section class="services-section">
+
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        PRODUK JASA
+                    </span>
+
+                    <h2>
+                        Daftar Jasa
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="primary-button"
+                    id="addServiceButton"
+                >
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Tambah
+
+                </button>
+
+            </div>
+
+
+
+            <div
+                class="service-admin-list"
+                id="serviceAdminList"
+            >
+
+                <div class="loading-state">
+
+                    <div class="loading-spinner">
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                    </div>
+
+                    <p>
+                        Memuat jasa...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         ORDER DETAIL MODAL
+    ====================================================== -->
+
+    <div
+        class="admin-modal"
+        id="orderModal"
+        hidden
+    >
+
+        <div class="admin-modal-content">
+
+
+            <div class="modal-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        DETAIL PESANAN
+                    </span>
+
+                    <h2 id="modalOrderCode">
+                        -
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="close-button"
+                    id="closeOrderModal"
+                >
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+
+
+            <div
+                class="order-detail"
+                id="orderDetail"
+            >
+
+                <!-- DIISI JAVASCRIPT -->
+
+            </div>
+
+
+
+            <!-- STATUS -->
+
+            <div class="status-section">
+
+                <label for="orderStatus">
+                    Status Pesanan
+                </label>
+
+                <select
+                    id="orderStatus"
+                >
+
+                    <option value="Menunggu">
+                        Menunggu
+                    </option>
+
+                    <option value="Diproses">
+                        Diproses
+                    </option>
+
+                    <option value="Selesai">
+                        Selesai
+                    </option>
+
+                    <option value="Dibatalkan">
+                        Dibatalkan
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <button
+                type="button"
+                class="primary-button full-button"
+                id="saveStatusButton"
+            >
+
+                <i class="fa-solid fa-check"></i>
+
+                Simpan Status
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         SERVICE MODAL
+    ====================================================== -->
+
+    <div
+        class="admin-modal"
+        id="serviceModal"
+        hidden
+    >
+
+        <div class="admin-modal-content">
+
+
+            <div class="modal-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        KELOLA JASA
+                    </span>
+
+                    <h2 id="serviceModalTitle">
+                        Tambah Jasa
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="close-button"
+                    id="closeServiceModal"
+                >
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+
+
+            <form
+                id="serviceForm"
+                class="admin-form"
+            >
+
+                <input
+                    type="hidden"
+                    id="serviceId"
+                >
+
+
+                <div class="form-group">
+
+                    <label for="serviceName">
+                        Nama Jasa
+                    </label>
+
+                    <input
+                        type="text"
+                        id="serviceName"
+                        placeholder="Contoh: Setrika"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="serviceDescription">
+                        Deskripsi
+                    </label>
+
+                    <textarea
+                        id="serviceDescription"
+                        rows="3"
+                        placeholder="Deskripsi jasa..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="servicePrice">
+                            Harga
+                        </label>
+
+                        <input
+                            type="number"
+                            id="servicePrice"
+                            placeholder="5000"
+                            min="0"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="serviceUnit">
+                            Satuan
+                        </label>
+
+                        <input
+                            type="text"
+                            id="serviceUnit"
+                            placeholder="kg"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="serviceCategory">
+                        Kategori
+                    </label>
+
+                    <select
+                        id="serviceCategory"
+                        required
+                    >
+
+                        <option value="pakaian">
+                            Pakaian
+                        </option>
+
+                        <option value="kebersihan">
+                            Kebersihan
+                        </option>
+
+                        <option value="kendaraan">
+                            Kendaraan
+                        </option>
+
+                        <option value="antar">
+                            Antar
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <label class="switch-row">
+
+                    <span>
+
+                        <strong>
+                            Jasa aktif
+                        </strong>
+
+                        <small>
+                            Tampilkan jasa kepada pelanggan
+                        </small>
+
+                    </span>
+
+                    <input
+                        type="checkbox"
+                        id="serviceActive"
+                        checked
+                    >
+
+                </label>
+
+
+                <button
+                    type="submit"
+                    class="primary-button full-button"
+                >
+
+                    <i class="fa-solid fa-floppy-disk"></i>
+
+                    Simpan Jasa
+
+                </button>
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div
+        class="admin-toast"
+        id="adminToast"
+    >
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        <span id="adminToastText">
+            Berhasil
+        </span>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         BOTTOM NAV
+    ====================================================== -->
+
+    <nav class="admin-bottom-nav">
+
+        <button
+            type="button"
+            class="admin-nav-item active"
+            data-section="dashboard"
+        >
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <span>
+                Dashboard
+            </span>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="admin-nav-item"
+            data-section="orders"
+        >
+
+            <i class="fa-solid fa-receipt"></i>
+
+            <span>
+                Pesanan
+            </span>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="admin-nav-item"
+            data-section="services"
+        >
+
+            <i class="fa-solid fa-briefcase"></i>
+
+            <span>
+                Jasa
+            </span>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="admin-nav-item"
+            data-section="settings"
+        >
+
+            <i class="fa-solid fa-gear"></i>
+
+            <span>
+                Pengaturan
+            </span>
+
+        </button>
+
+    </nav>
+
+
+</div>
+
+
+<!-- =========================================================
+     SUPABASE
+========================================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- ADMIN JAVASCRIPT -->
+<script src="admin.js"></script>
+
+</body>
+</html>
