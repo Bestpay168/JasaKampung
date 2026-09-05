@@ -1,0 +1,1025 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#111827">
+
+    <meta name="description"
+          content="JASA KAMPUNG - Pesan jasa lokal dengan mudah dan cepat.">
+
+    <title>JASA KAMPUNG</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<!-- ==================================================
+     APP
+================================================== -->
+
+<div class="app">
+
+
+    <!-- ==================================================
+         HEADER
+    ================================================== -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-handshake"></i>
+            </div>
+
+            <div class="logo-text">
+                <h1>JASA KAMPUNG</h1>
+                <span>Jasa lokal terpercaya</span>
+            </div>
+
+        </div>
+
+        <button class="notification-btn"
+                id="notificationBtn">
+
+            <i class="fa-regular fa-bell"></i>
+
+            <span id="notificationCount">0</span>
+
+        </button>
+
+    </header>
+
+
+    <!-- ==================================================
+         LOCATION
+    ================================================== -->
+
+    <section class="location">
+
+        <div class="location-icon">
+            <i class="fa-solid fa-location-dot"></i>
+        </div>
+
+        <div class="location-info">
+
+            <small>Lokasi Anda</small>
+
+            <strong id="currentLocation">
+                Belum dipilih
+            </strong>
+
+        </div>
+
+        <button id="locationBtn">
+            Ubah
+        </button>
+
+    </section>
+
+
+    <!-- ==================================================
+         HERO
+    ================================================== -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <span class="hero-badge">
+                ⚡ CEPAT & PRAKTIS
+            </span>
+
+            <h2>
+                Butuh bantuan?
+                <br>
+                <strong>Pesan sekarang.</strong>
+            </h2>
+
+            <p>
+                Temukan berbagai jasa terpercaya
+                di sekitar Anda.
+            </p>
+
+            <button class="hero-button"
+                    id="findServiceBtn">
+
+                Cari Jasa
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+        </div>
+
+        <div class="hero-decoration">
+            <i class="fa-solid fa-bolt"></i>
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         SEARCH
+    ================================================== -->
+
+    <section class="search">
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Cari jasa yang Anda butuhkan...">
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         CATEGORY
+    ================================================== -->
+
+    <section class="categories">
+
+        <div class="section-title">
+
+            <div>
+                <small>KATEGORI</small>
+                <h2>Pilih kebutuhan</h2>
+            </div>
+
+        </div>
+
+
+        <div class="category-list">
+
+            <button class="category active"
+                    data-category="all">
+
+                <i class="fa-solid fa-border-all"></i>
+
+                <span>Semua</span>
+
+            </button>
+
+
+            <button class="category"
+                    data-category="pakaian">
+
+                <i class="fa-solid fa-shirt"></i>
+
+                <span>Pakaian</span>
+
+            </button>
+
+
+            <button class="category"
+                    data-category="kebersihan">
+
+                <i class="fa-solid fa-broom"></i>
+
+                <span>Bersih</span>
+
+            </button>
+
+
+            <button class="category"
+                    data-category="kendaraan">
+
+                <i class="fa-solid fa-motorcycle"></i>
+
+                <span>Kendaraan</span>
+
+            </button>
+
+
+            <button class="category"
+                    data-category="antar">
+
+                <i class="fa-solid fa-box"></i>
+
+                <span>Antar</span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         SERVICES
+    ================================================== -->
+
+    <main class="services"
+          id="services">
+
+        <div class="section-title">
+
+            <div>
+                <small>LAYANAN</small>
+                <h2>Jasa populer</h2>
+            </div>
+
+            <span id="serviceCount">
+                6 jasa
+            </span>
+
+        </div>
+
+
+        <div class="service-grid"
+             id="serviceGrid">
+
+
+            <!-- SETRIKA -->
+
+            <article class="service-card"
+                     data-category="pakaian"
+                     data-name="Setrika"
+                     data-price="5000"
+                     data-unit="kg">
+
+                <div class="service-image">
+                    <i class="fa-solid fa-shirt"></i>
+
+                    <span class="popular">
+                        POPULER
+                    </span>
+                </div>
+
+                <div class="service-info">
+
+                    <h3>Setrika</h3>
+
+                    <p>
+                        Pakaian rapi dan wangi
+                    </p>
+
+                    <div class="service-footer">
+
+                        <div class="price">
+                            <strong>Rp5.000</strong>
+                            <span>/kg</span>
+                        </div>
+
+                        <button class="add-btn"
+                                data-name="Setrika"
+                                data-price="5000"
+                                data-unit="kg">
+
+                            <i class="fa-solid fa-plus"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- CUCI SEPATU -->
+
+            <article class="service-card"
+                     data-category="kebersihan"
+                     data-name="Cuci Sepatu"
+                     data-price="20000"
+                     data-unit="pasang">
+
+                <div class="service-image">
+                    <i class="fa-solid fa-shoe-prints"></i>
+                </div>
+
+                <div class="service-info">
+
+                    <h3>Cuci Sepatu</h3>
+
+                    <p>
+                        Sepatu bersih seperti baru
+                    </p>
+
+                    <div class="service-footer">
+
+                        <div class="price">
+                            <strong>Rp20.000</strong>
+                            <span>/pasang</span>
+                        </div>
+
+                        <button class="add-btn"
+                                data-name="Cuci Sepatu"
+                                data-price="20000"
+                                data-unit="pasang">
+
+                            <i class="fa-solid fa-plus"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- CUCI HELM -->
+
+            <article class="service-card"
+                     data-category="kendaraan"
+                     data-name="Cuci Helm"
+                     data-price="15000"
+                     data-unit="pcs">
+
+                <div class="service-image">
+                    <i class="fa-solid fa-helmet-safety"></i>
+                </div>
+
+                <div class="service-info">
+
+                    <h3>Cuci Helm</h3>
+
+                    <p>
+                        Helm bersih dan bebas bau
+                    </p>
+
+                    <div class="service-footer">
+
+                        <div class="price">
+                            <strong>Rp15.000</strong>
+                            <span>/pcs</span>
+                        </div>
+
+                        <button class="add-btn"
+                                data-name="Cuci Helm"
+                                data-price="15000"
+                                data-unit="pcs">
+
+                            <i class="fa-solid fa-plus"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- ANTAR BARANG -->
+
+            <article class="service-card"
+                     data-category="antar"
+                     data-name="Antar Barang"
+                     data-price="10000"
+                     data-unit="order">
+
+                <div class="service-image">
+                    <i class="fa-solid fa-motorcycle"></i>
+                </div>
+
+                <div class="service-info">
+
+                    <h3>Antar Barang</h3>
+
+                    <p>
+                        Kirim barang dengan cepat
+                    </p>
+
+                    <div class="service-footer">
+
+                        <div class="price">
+                            <strong>Rp10.000</strong>
+                            <span>/order</span>
+                        </div>
+
+                        <button class="add-btn"
+                                data-name="Antar Barang"
+                                data-price="10000"
+                                data-unit="order">
+
+                            <i class="fa-solid fa-plus"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- TITIP BELANJA -->
+
+            <article class="service-card"
+                     data-category="antar"
+                     data-name="Titip Belanja"
+                     data-price="10000"
+                     data-unit="order">
+
+                <div class="service-image">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+
+                <div class="service-info">
+
+                    <h3>Titip Belanja</h3>
+
+                    <p>
+                        Kami bantu belanja kebutuhan
+                    </p>
+
+                    <div class="service-footer">
+
+                        <div class="price">
+                            <strong>Rp10.000</strong>
+                            <span>/order</span>
+                        </div>
+
+                        <button class="add-btn"
+                                data-name="Titip Belanja"
+                                data-price="10000"
+                                data-unit="order">
+
+                            <i class="fa-solid fa-plus"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- BERSIH RUMAH -->
+
+            <article class="service-card"
+                     data-category="kebersihan"
+                     data-name="Bersih Rumah"
+                     data-price="50000"
+                     data-unit="order">
+
+                <div class="service-image">
+                    <i class="fa-solid fa-house"></i>
+                </div>
+
+                <div class="service-info">
+
+                    <h3>Bersih Rumah</h3>
+
+                    <p>
+                        Rumah bersih dan nyaman
+                    </p>
+
+                    <div class="service-footer">
+
+                        <div class="price">
+                            <strong>Rp50.000</strong>
+                            <span>/order</span>
+                        </div>
+
+                        <button class="add-btn"
+                                data-name="Bersih Rumah"
+                                data-price="50000"
+                                data-unit="order">
+
+                            <i class="fa-solid fa-plus"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- NO RESULT -->
+
+        <div class="no-result"
+             id="noResult"
+             hidden>
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <h3>Jasa tidak ditemukan</h3>
+
+            <p>
+                Coba cari dengan kata lain.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- ==================================================
+         PROMO
+    ================================================== -->
+
+    <section class="promo">
+
+        <div>
+
+            <span>🎁 PROMO PELANGGAN BARU</span>
+
+            <h2>
+                Hemat biaya jasa
+            </h2>
+
+            <p>
+                Dapatkan penawaran menarik
+                untuk pesanan pertama.
+            </p>
+
+        </div>
+
+        <i class="fa-solid fa-gift"></i>
+
+    </section>
+
+
+    <!-- ==================================================
+         HOW IT WORKS
+    ================================================== -->
+
+    <section class="how-it-works">
+
+        <div class="section-title">
+
+            <div>
+                <small>CARA KERJA</small>
+
+                <h2>
+                    Pesan dalam 3 langkah
+                </h2>
+            </div>
+
+        </div>
+
+
+        <div class="steps">
+
+            <div class="step">
+
+                <span>1</span>
+
+                <div>
+                    <h3>Pilih jasa</h3>
+
+                    <p>
+                        Pilih layanan yang Anda butuhkan.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="step">
+
+                <span>2</span>
+
+                <div>
+                    <h3>Isi pesanan</h3>
+
+                    <p>
+                        Masukkan jumlah dan alamat.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="step">
+
+                <span>3</span>
+
+                <div>
+                    <h3>Pesanan diproses</h3>
+
+                    <p>
+                        Jasa segera kami kerjakan.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         FLOATING CART
+    ================================================== -->
+
+    <button class="cart-button"
+            id="cartButton">
+
+        <div class="cart-button-icon">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <span id="cartCount">
+                0
+            </span>
+
+        </div>
+
+        <div class="cart-button-info">
+
+            <strong>
+                Keranjang
+            </strong>
+
+            <span id="cartTotal">
+                Rp0
+            </span>
+
+        </div>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </button>
+
+
+    <!-- ==================================================
+         BOTTOM NAV
+    ================================================== -->
+
+    <nav class="bottom-nav">
+
+        <button class="nav-item active"
+                data-page="home">
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>Beranda</span>
+
+        </button>
+
+
+        <button class="nav-item"
+                data-page="services">
+
+            <i class="fa-solid fa-grid-2"></i>
+
+            <span>Jasa</span>
+
+        </button>
+
+
+        <button class="nav-item"
+                data-page="cart">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <span>Keranjang</span>
+
+        </button>
+
+
+        <button class="nav-item"
+                data-page="orders">
+
+            <i class="fa-solid fa-receipt"></i>
+
+            <span>Pesanan</span>
+
+        </button>
+
+
+        <button class="nav-item"
+                data-page="profile">
+
+            <i class="fa-regular fa-user"></i>
+
+            <span>Akun</span>
+
+        </button>
+
+    </nav>
+
+</div>
+
+
+<!-- ==================================================
+     CART MODAL
+================================================== -->
+
+<div class="modal"
+     id="cartModal"
+     hidden>
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <div>
+                <small>KERANJANG</small>
+                <h2>Pesanan Anda</h2>
+            </div>
+
+            <button class="close-btn"
+                    id="closeCart">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+        <div id="cartItems">
+
+            <div class="empty-cart">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <h3>
+                    Keranjang kosong
+                </h3>
+
+                <p>
+                    Tambahkan jasa terlebih dahulu.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="cart-summary">
+
+            <div>
+                <span>Subtotal</span>
+                <strong id="subtotal">Rp0</strong>
+            </div>
+
+            <div>
+                <span>Ongkir</span>
+                <strong id="shipping">Rp0</strong>
+            </div>
+
+            <div class="total">
+                <span>Total</span>
+                <strong id="total">Rp0</strong>
+            </div>
+
+            <button id="checkoutBtn">
+                Lanjut Checkout
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ==================================================
+     CHECKOUT MODAL
+================================================== -->
+
+<div class="modal"
+     id="checkoutModal"
+     hidden>
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <div>
+                <small>CHECKOUT</small>
+                <h2>Data Pesanan</h2>
+            </div>
+
+            <button class="close-btn"
+                    id="closeCheckout">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+        <form id="checkoutForm">
+
+
+            <div class="form-group">
+
+                <label for="name">
+                    Nama
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Nama lengkap"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="phone">
+                    WhatsApp
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="08xxxxxxxxxx"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="address">
+                    Alamat
+                </label>
+
+                <textarea
+                    id="address"
+                    rows="3"
+                    placeholder="Alamat lengkap"
+                    required></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Pengantaran
+                </label>
+
+                <div class="delivery-choice">
+
+                    <label>
+
+                        <input
+                            type="radio"
+                            name="delivery"
+                            value="pickup"
+                            checked>
+
+                        <span>
+                            Ambil sendiri
+                            <small>Gratis</small>
+                        </span>
+
+                    </label>
+
+
+                    <label>
+
+                        <input
+                            type="radio"
+                            name="delivery"
+                            value="delivery">
+
+                        <span>
+                            Diantar
+                            <small>Rp10.000</small>
+                        </span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="payment">
+                    Metode pembayaran
+                </label>
+
+                <select id="payment" required>
+
+                    <option value="">
+                        Pilih pembayaran
+                    </option>
+
+                    <option value="COD">
+                        COD
+                    </option>
+
+                    <option value="QRIS">
+                        QRIS
+                    </option>
+
+                    <option value="DANA">
+                        DANA
+                    </option>
+
+                    <option value="GoPay">
+                        GoPay
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="note">
+                    Catatan
+                </label>
+
+                <textarea
+                    id="note"
+                    rows="2"
+                    placeholder="Catatan tambahan (opsional)"></textarea>
+
+            </div>
+
+
+            <div class="checkout-total">
+
+                <span>
+                    Total pembayaran
+                </span>
+
+                <strong id="checkoutTotal">
+                    Rp0
+                </strong>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="whatsapp-button">
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+                Pesan via WhatsApp
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ==================================================
+     TOAST
+================================================== -->
+
+<div class="toast"
+     id="toast">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <span id="toastText">
+        Berhasil ditambahkan
+    </span>
+
+</div>
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
