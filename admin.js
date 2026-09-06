@@ -142,6 +142,49 @@ if (adminError || !adminUser) {
     /* =====================================================
        EVENTS
     ===================================================== */
+const logoutButton =
+    document.getElementById("logoutButton");
+
+if (logoutButton) {
+
+    logoutButton.addEventListener(
+        "click",
+        async () => {
+
+            const confirmed =
+                confirm(
+                    "Keluar dari dashboard admin?"
+                );
+
+            if (!confirmed) return;
+
+
+            const {
+                error
+            } = await supabaseClient.auth.signOut();
+
+
+            if (error) {
+
+                console.error(error);
+
+                showToast(
+                    "Gagal keluar.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            window.location.href =
+                "admin-login.html";
+
+        }
+    );
+
+}
 
     function setupEvents() {
 
