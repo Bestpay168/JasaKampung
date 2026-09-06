@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
     ===================================================== */
 
     const CONFIG = {
-        supabaseUrl: "MASUKKAN_PROJECT_URL_ANDA",
-        supabaseKey: "MASUKKAN_PUBLISHABLE_KEY_ANDA"
+        supabaseUrl: https://zdrpadycrxykpvqdnifb.supabase.co",
+        supabaseKey: "sb_publishable_Ahre-vE-eSSWsOjGDesQEA_AlA6jBE9"
     };
 
     /* =====================================================
