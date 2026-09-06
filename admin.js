@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         CONFIG.supabaseKey
     );
 
-    /* =====================================================
+     /* =====================================================
        STATE
     ===================================================== */
 
@@ -73,6 +73,54 @@ document.addEventListener("DOMContentLoaded", () => {
     /* =====================================================
        INITIALIZE
     ===================================================== */
+/* =====================================================
+   AUTH GUARD
+===================================================== */
+
+const {
+    data: {
+        session
+    }
+} = await supabaseClient.auth.getSession();
+
+
+if (!session) {
+
+    window.location.href =
+        "admin-login.html";
+
+    return;
+
+}
+
+
+const {
+    data: adminUser,
+    error: adminError
+} = await supabaseClient
+    .from("admin_users")
+    .select("user_id, role")
+    .eq("user_id", session.user.id)
+    .eq("role", "admin")
+    .maybeSingle();
+
+
+if (adminError || !adminUser) {
+
+    await supabaseClient.auth.signOut();
+
+    window.location.href =
+        "admin-login.html";
+
+    return;
+
+}
+
+
+/* =====================================================
+   ADMIN SUDAH TERVALIDASI
+===================================================== */
+
 
     await init();
 
